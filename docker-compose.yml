@@ -1,0 +1,13 @@
+# docker run --name gympass_model -e POSTGRESQL_USERNAME=postgres -e POSTGRESQL_PASSWORD=postgres -e POSTGRESQL_DATABASE=gympass -p 5432:5432  bitnami/postgresql:latest
+
+version: '2.17.3'
+
+services:
+  gympass_model:
+    image: bitnami/postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=postgres
+      - POSTGRESQL_DATABASE=gympass

@@ -1,3 +1,8 @@
+# Setup Docker
+
+```sh
+docker run --name gympass_model -e POSTGRESQL_USERNAME=postgres -e POSTGRESQL_PASSWORD=postgres -e POSTGRESQL_DATABASE=gympass -p 5432:5432  bitnami/postgresql:latest
+```
 # App
 
 Gympass style app.

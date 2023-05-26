@@ -1,14 +1,19 @@
-import { describe, expect, it } from "vitest"
+import { beforeEach, describe, expect, it } from "vitest"
 import { inMemoryUserRepository } from "../repositories/im-memory/in-memory-users-repository"
 import { AuthenticateUSeCase } from "./authenticate"
 import { hash } from "bcryptjs"
 import { InvalidCredentialsErrors } from "./errors/invalid-credentials-errors"
 
+let usersRepository: inMemoryUserRepository
+let sut: AuthenticateUSeCase
+
 describe('Authenticate Use case', () => {
+    beforeEach(() => {
+        usersRepository = new inMemoryUserRepository()
+        sut = new AuthenticateUSeCase(usersRepository)
+    })
+
     it('shold be able to authenticate', async () => {
-        const usersRepository = new inMemoryUserRepository()
-        const sut = new AuthenticateUSeCase(usersRepository)
-
         await usersRepository.create({
             name: 'Victor Rodirgo',
             email: 'victor@email.com',
@@ -24,9 +29,6 @@ describe('Authenticate Use case', () => {
     })
 
     it('shold not be able to authenticate with wrong email', async () => {
-        const usersRepository = new inMemoryUserRepository()
-        const sut = new AuthenticateUSeCase(usersRepository)
-
         await usersRepository.create({
             name: 'Victor Rodirgo',
             email: 'victor@email.com',
@@ -42,9 +44,6 @@ describe('Authenticate Use case', () => {
     })
 
     it('shold not be able to authenticate with wrong email', async () => {
-        const usersRepository = new inMemoryUserRepository()
-        const sut = new AuthenticateUSeCase(usersRepository)
-
         expect(() => sut.execute({
             email: 'victor@emil.com',
             password: '123456'
@@ -53,9 +52,6 @@ describe('Authenticate Use case', () => {
 
 
     it('shold not be able to authenticate with wrong password', async () => {
-        const usersRepository = new inMemoryUserRepository()
-        const sut = new AuthenticateUSeCase(usersRepository)
-
         await usersRepository.create({
             name: 'Victor Rodirgo',
             email: 'victor@email.com',

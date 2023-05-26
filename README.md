@@ -1,15 +1,10 @@
-# Setup Docker
-
-```sh
-docker run --name gympass_model -e POSTGRESQL_USERNAME=postgres -e POSTGRESQL_PASSWORD=postgres -e POSTGRESQL_DATABASE=gympass -p 5432:5432  bitnami/postgresql:latest
-```
 # App
 
 Gympass style app.
 
 ## RFs (Requisitor funcionais)
 
-- [ ] Deve ser possível se cadastrar;
+- [x] Deve ser possível se cadastrar;
 - [ ] Deve ser possível se autenticar;
 - [ ] Deve ser possível obter o perfil de um usuario logado;
 - [ ] Deve ser possíceel obter o numero de check-ins realizados pelo usuário logado;
@@ -22,7 +17,7 @@ Gympass style app.
 
 ## RNs (Regras de Negócios)
 
-- [ ] O usuário não deve poder se cadastrar com um email duplicado;
+- [x] O usuário não deve poder se cadastrar com um email duplicado;
 - [ ] O usuário não poderá fazer dois check-ins em academias no mesmo dia;
 - [ ] O ususario não pode fazer check-in se não estiver perto (100 mt) da cademia;
 - [ ] O check-in só pode ser validado 20 min após criado;
@@ -32,7 +27,13 @@ Gympass style app.
 
 ## RNFs (Requisitos não-funcionais)
 
-- [ ] A senha do usuário precisa estar criptografada;
-- [ ] Os dados da aplicação precisam estar persistidos em um banco Postgresql;
+- [x] A senha do usuário precisa estar criptografada;
+- [x] Os dados da aplicação precisam estar persistidos em um banco Postgresql;
 - [ ] Todas listas de dados precisam estar paginadas por 20 listas por página;
 - [ ] O usuario deve ser identificado por um JWT (JSON Web Token);
+
+# Setup Docker
+
+```sh
+docker run --name gympass_model -e POSTGRESQL_USERNAME=postgres -e POSTGRESQL_PASSWORD=postgres -e POSTGRESQL_DATABASE=gympass -p 5432:5432  bitnami/postgresql:latest
+```

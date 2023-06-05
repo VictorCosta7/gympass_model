@@ -34,7 +34,7 @@ describe('Check-in Use Case', () => {
         const { checkIn } = await sut.execute({
             gymId: 'gym-01',
             userId: 'user-01',
-            userLatutude: -5.1952044,
+            userLatitude: -5.1952044,
             userLongitude: -37.350665
         })
 
@@ -48,15 +48,15 @@ describe('Check-in Use Case', () => {
         await sut.execute({
             gymId: 'gym-01',
             userId: 'user-01',
-            userLatutude: -5.1952044,
+            userLatitude: -5.1952044,
             userLongitude: -37.350665
         })
 
-        expect(async () => {
+        await expect(async () => {
             await sut.execute({
                 gymId: 'gym-01',
                 userId: 'user-01',
-                userLatutude: -5.1952044,
+                userLatitude: -5.1952044,
                 userLongitude: -37.350665
             })
         }).rejects.toBeInstanceOf(Error)
@@ -68,7 +68,7 @@ describe('Check-in Use Case', () => {
         await sut.execute({
             gymId: 'gym-01',
             userId: 'user-01',
-            userLatutude: -5.1952044,
+            userLatitude: -5.1952044,
             userLongitude: -37.350665
         })
 
@@ -77,7 +77,7 @@ describe('Check-in Use Case', () => {
         const { checkIn } = await sut.execute({
             gymId: 'gym-01',
             userId: 'user-01',
-            userLatutude: -5.1952044,
+            userLatitude: -5.1952044,
             userLongitude: -37.350665
         })
 
@@ -87,19 +87,19 @@ describe('Check-in Use Case', () => {
     it('shold not be able to check in on distant gym', async () => {
         gymsRepository.items.push({
             id: 'gym-02',
-            title: 'Maromba gym',
+            title: 'Victor gym',
             description: '',
             phone: '',
             latitude: new Decimal(-5.1392621),
             longitude: new Decimal(-37.344601)
         })
 
-        expect(() => {
-            sut.execute({
-                gymId: 'gym-01',
+        await expect(async () => {
+            await sut.execute({
+                gymId: 'gym-02',
                 userId: 'user-01',
-                userLatutude: -4.9510406,
-                userLongitude: -37.4032857
+                userLatitude: -5.1952044,
+                userLongitude: -37.350665
             })
         }).rejects.toBeInstanceOf(Error)
     })

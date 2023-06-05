@@ -1,7 +1,4 @@
-import { compare } from "bcryptjs";
-import { UsersRepository } from "../repositories/users-repository";
-import { InvalidCredentialsErrors } from "./errors/invalid-credentials-errors";
-import { CheckIn, User } from "@prisma/client";
+import { CheckIn } from "@prisma/client";
 import { CheckInsRepository } from "../repositories/check-ins-repository";
 import { GymsRepository } from "../repositories/gyms-repository";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error";
@@ -10,7 +7,7 @@ import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coor
 interface CheckInUseCaseRequest {
     userId: string
     gymId: string
-    userLatutude: number
+    userLatitude: number
     userLongitude: number
 }
 
@@ -24,7 +21,12 @@ export class CheckInUseCase {
         private gymsRepository: GymsRepository
     ) { }
 
-    async execute({ userId, gymId, userLatutude, userLongitude }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
+    async execute({
+        userId,
+        gymId,
+        userLatitude,
+        userLongitude
+    }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
         const gym = await this.gymsRepository.findById(gymId)
 
         if (!gym) {
@@ -32,7 +34,7 @@ export class CheckInUseCase {
         }
 
         const distance = getDistanceBetweenCoordinates(
-            { latitude: userLatutude, longitude: userLongitude },
+            { latitude: userLatitude, longitude: userLongitude },
             {
                 latitude: gym.latitude.toNumber(),
                 longitude: gym.longitude.toNumber()

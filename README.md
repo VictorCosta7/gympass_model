@@ -7,10 +7,10 @@ Gympass style app.
 - [x] Deve ser possível se cadastrar;
 - [x] Deve ser possível se autenticar;
 - [x] Deve ser possível obter o perfil de um usuario logado;
-- [ ] Deve ser possíceel obter o numero de check-ins realizados pelo usuário logado;
-- [ ] Deve ser possível o usuario obeter seu histórico de check-ins;
-- [ ] Deve ser possível o usuário buscar academias próximas;
-- [ ] Deve ser possível o usuário buscar academias prlo nome;
+- [x] Deve ser possíceel obter o numero de check-ins realizados pelo usuário logado;
+- [x] Deve ser possível o usuario obeter seu histórico de check-ins;
+- [x] Deve ser possível o usuário buscar academias próximas;
+- [x] Deve ser possível o usuário buscar academias prlo nome;
 - [x] Deve ser possícel o usuário realiazr check-ins em uma academia ;
 - [ ] Deve ser possível validar um check-in de um usuario;
 - [x] Deve ser possível cadastrar uma academia;
@@ -29,7 +29,7 @@ Gympass style app.
 
 - [x] A senha do usuário precisa estar criptografada;
 - [x] Os dados da aplicação precisam estar persistidos em um banco Postgresql;
-- [ ] Todas listas de dados precisam estar paginadas por 20 listas por página;
+- [x] Todas listas de dados precisam estar paginadas por 20 listas por página;
 - [ ] O usuario deve ser identificado por um JWT (JSON Web Token);
 
 # Setup Docker

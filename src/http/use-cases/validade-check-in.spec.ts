@@ -51,9 +51,9 @@ describe('Validate Check-in Use Case', () => {
 
         vi.advanceTimersByTime(twentyOneMinutesInMs)
 
-        await expect(() => expect({
+        expect(() => expect({
             checkInId: createdCheckIn.id
-        }))
-            .rejects.toBeInstanceOf(Error)
+        }).rejects.toBeInstanceOf(Error)
+        )
     })
 })

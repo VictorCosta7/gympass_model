@@ -25,10 +25,10 @@
     "@vitest/ui": "0.31.1",
     "eslint": "8.40.0",
     "eslint-config-standard-with-typescript": "34.0.1",
-    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-import": "2.26.0",
     "eslint-plugin-n": "15.7.0",
     "eslint-plugin-promise": "6.1.1",
-    "prisma": "4.14.0",
+    "prisma": "4.17.0-dev.26",
     "tsup": "^6.7.0",
     "tsx": "^3.12.6",
     "typescript": "5.0.4",
@@ -36,7 +36,8 @@
     "vitest": "0.31.1"
   },
   "dependencies": {
-    "@prisma/client": "4.14.0",
+    "@fastify/jwt": "7.0.0",
+    "@prisma/client": "4.17.0-dev.26",
     "bcryptjs": "2.4.3",
     "dayjs": "1.11.7",
     "dotenv": "16.0.3",

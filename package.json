@@ -28,7 +28,7 @@
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-n": "15.7.0",
     "eslint-plugin-promise": "6.1.1",
-    "prisma": "4.17.0-dev.26",
+    "prisma": "4.17.0-dev.46",
     "tsup": "^6.7.0",
     "tsx": "^3.12.6",
     "typescript": "5.0.4",

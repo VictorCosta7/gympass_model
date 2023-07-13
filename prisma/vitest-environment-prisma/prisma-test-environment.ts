@@ -28,14 +28,14 @@ export default <Environment>{
 
         process.env.DATABASE_URL = databaseURL
 
-        execSync('sudo npx prisma migrate deploy')
+        execSync('npx prisma migrate deploy')
 
         return {
             async teardown() {
                 await prisma.$executeRawUnsafe(
                     `DROP SCHEMA IF EXISTS "${schema}" CASCADE`
                 )
-                await prisma.$disconnect
+                prisma.$disconnect
             },
         }
     }

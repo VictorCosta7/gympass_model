@@ -1,6 +1,6 @@
-import request from 'supertest';
-import { app } from '@/app';
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import request from 'supertest'
+import { app } from '@/app'
+import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 describe('Authenticate (e2e)', () => {
     beforeAll(async () => {
@@ -30,10 +30,12 @@ describe('Authenticate (e2e)', () => {
             .set('Authorization', `Bearer ${token}`)
             .send()
 
-        expect(profileResponse).toEqual(200)
-        expect(profileResponse.body.user).toEqual(
+        const profileUser = JSON.parse(profileResponse.text)
+
+        expect(profileResponse.statusCode).toEqual(200)
+        expect(profileUser).toEqual(
             expect.objectContaining({
-                email: 'ricardo@rmail.com'
+                email: 'ricardo@rmail.com',
             })
         )
     })

@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 
 import { verifyJwt } from "../../middlewares/verify-twt";
+
 import { search } from "./search";
 import { nearby } from "./nearby";
 import { create } from "./create";
@@ -11,5 +12,5 @@ export async function gymsRoutes(app: FastifyInstance) {
     app.get('/gyms/search', search)
     app.get('/gyms/nearby', nearby)
 
-    app.post('/gym', create)
+    app.post('/gyms', create)
 }   
